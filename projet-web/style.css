@@ -9,10 +9,29 @@ header {
     justify-content: flex-start;
     background-color: white;
     padding: 1rem 2rem;
+
+@media (max-width: 768px)
+    flex-direction: .card;
+    align-items: flex-start;
 }
 
 nav{
     display: flex;
     justify-content: flex-end;
     padding: 1rem 2rem;
+}
+
+.gallery {
+    display: flex;
+    align-self: auto;
+    gap: 1rem;
+}
+
+.card {
+    width: 300px;
+    height: 300px;
+    flex-grow: 1;
+    background-color: white;
+    padding: 1rem;
+    border-radius: 8px;
 }
