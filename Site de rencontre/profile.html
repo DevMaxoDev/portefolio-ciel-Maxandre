@@ -1,0 +1,81 @@
+<!doctype html>
+<html lang="fr">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width,initial-scale=1">
+  <title>Profil — Coup2Foudre</title>
+  <link rel="stylesheet" href="style.css">
+  <link rel="stylesheet" href="profile.css">
+</head>
+<body>
+  <div class="profile-card">
+    <h1 id="displayName">Utilisateur</h1>
+    <div class="profile-meta" id="email">email@example.com</div>
+    <div class="profile-bio" id="bio">Aucune biographie.</div>
+    <div class="profile-extra">
+      <div><strong>Premium:</strong><span id="premium">Non</span></div>
+      <div><strong>Membre depuis:</strong><span id="joined">-</span></div>
+    </div>
+    <div class="actions">
+      <button class="btn-back" id="backBtn">Retour</button>
+      <button class="btn-logout" id="logoutBtn">Se déconnecter</button>
+    </div>
+  </div>
+
+    <script>
+    // Lire le profil depuis l'API json-server (si profile_id présent) ou fallback localStorage
+    (function() {
+      const id = localStorage.getItem('profile_id');
+      if (id) {
+        fetch('http://localhost:3000/profiles/' + encodeURIComponent(id))
+          .then(r => {
+            if (!r.ok) throw new Error('Profil introuvable');
+            return r.json();
+          })
+          .then(profile => {
+            document.getElementById('displayName').textContent = profile.displayName || profile.email || 'Utilisateur';
+            document.getElementById('email').textContent = profile.email || '-';
+            document.getElementById('bio').textContent = profile.bio || '-';
+            document.getElementById('premium').textContent = profile.premium ? 'Oui' : 'Non';
+            document.getElementById('joined').textContent = profile.joined ? new Date(profile.joined).toLocaleString() : '-';
+          })
+          .catch(e => {
+            console.warn('Erreur lecture profil via API, fallback localStorage', e);
+            loadFromLocalStorageFallback();
+          });
+      } else {
+        loadFromLocalStorageFallback();
+      }
+
+      function loadFromLocalStorageFallback() {
+        const raw = localStorage.getItem('fake_profile');
+        if (!raw) {
+          window.location.href = 'index.html';
+          return;
+        }
+        try {
+          const profile = JSON.parse(raw);
+          document.getElementById('displayName').textContent = profile.displayName || profile.email || 'Utilisateur';
+          document.getElementById('email').textContent = profile.email || '-';
+          document.getElementById('bio').textContent = profile.bio || '-';
+          document.getElementById('premium').textContent = profile.premium ? 'Oui' : 'Non';
+          document.getElementById('joined').textContent = profile.joined ? new Date(profile.joined).toLocaleString() : '-';
+        } catch (e) {
+          console.warn('Impossible de parser fake_profile', e);
+          window.location.href = 'index.html';
+        }
+      }
+
+      document.getElementById('logoutBtn').addEventListener('click', () => {
+        localStorage.removeItem('profile_id');
+        localStorage.removeItem('fake_profile');
+        window.location.href = 'index.html';
+      });
+
+      document.getElementById('backBtn').addEventListener('click', () => {
+        window.location.href = 'index.html';
+      });
+    })();
+    </script>
+</body>
+</html>

@@ -2,50 +2,52 @@
 <html lang="fr">
 <head>
     <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link rel="stylesheet" href="style.css">
+    <script type="module" src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.esm.js"></script>
+    <script nomodule src="https://unpkg.com/ionicons@7.1.0/dist/ionicons/ionicons.js"></script>
     <title>Site de Maxandre</title>
 </head>
+
 <body>
-    <header>
-        <h1 id="titre-principal"><center>PLESSIS Maxandre</center></h1>
-        <button id="theme-toggle">Mode Sombre</button>
+
+    <header class="header">
+        <a href="#" class="logo">Maxandre.</a>
+
+        <nav class="navbar">
+            <a href="etude.html" class="active">Etude</a>
+            <a href="passion.html">Passion</a>
+            <a href="metier.html">Metier</a>
+            <a href="portfolio.html">Portfolio</a>
+            <a href="contact.html">Contact</a>
+        </nav>
     </header>
-    <nav>
-        <ul>
-            <li>
-                <a href="#accueil" class="nav">#accueil</a>
-                <a href="#projets.html" class="nav">#projets</a>
-                <a href="#contact.html" class="nav">#contact</a>
-            </li>
-        </ul>
-    </nav>
-    <main>
-        <section id="accueil">
-            <h2>Bienvenue</h2>
-        </section>
-        <section id="projets">
-            <h2>Mes Projets</h2>
-            <div class="gallery">
-                <div class="card">
-                    <h2><p>PERMIS MOTO :</p></h2>
-                    <br><p>J'aimerais passer mon permis moto pour pouvoir conduire plus tard la moto de mes rêves : une Kawasaki Z900.</p>
-                </div>
-                <div class="card">
-                    <h2><p>TEST DE PASSAGE A LA GENDARMERIE :</p></h2>
-                    <br><p></p>
-                </div>
-                <div class="card">
-                    <h2><p>AVOIR LE BAC :</p></h2>
-                </div>
+
+    <section class="home">
+        <div class="home-content">
+            <h1>Hi, I'm Maxandre Plessis</h1>
+            <h3>Je suis Lycéen</h3>
+            <p>Bonjour et bienvenue sur mon portfolio ! 
+            Je suis lycéen, et vous trouverez ici mes études, 
+            mes passions, le métier que j’aimerais exercer plus tard, 
+            mes réalisations, ainsi qu’un espace pour me contacter.</p>
+            <div class="btn-box">
+                <a href="#">Resume</a>
+                <a href="documents/monfichier.pdf" download>Cover Letter</a>
             </div>
-        </section>
-        <section id="contact">
-            <h2>Me Contacter</h2>
-        </section>
-    </main>
-    <footer> &copy; Copyright 2025 Maxandre - Tous droits réservés </footer>
+
+            <div class="home-sci">
+                <a href="https://github.com/DevMaxoDev"><ion-icon name="logo-github"></ion-icon></a>
+                <a href="maxandre.plessis@gmail.com"><ion-icon name="mail"></ion-icon></a>
+                <a href="https://fr.linkedin.com/"><ion-icon name="logo-linkedin"></ion-icon></a>
+            </div>
+        </div>
+    </section>
+
 
 <script src="script.js"></script>
 </body>
+
 </html>
+<!--<footer> &copy; Copyright 2025 Maxandre - Tous droits réservés </footer>-->

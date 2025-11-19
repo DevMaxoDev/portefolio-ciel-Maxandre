@@ -1,0 +1,82 @@
+/* Styles spécifiques à la page profil */
+
+body {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+    background: url('../beau-texte-vacances-brillant-fond-d-ecran-romance.jpg') no-repeat center/cover;
+    background-size: cover;
+    background-position: center;
+    color: #ffffff;
+}
+
+.profile-card {
+  width: 520px;
+  background: rgba(255,255,255,0.06);
+  border: 2px solid rgba(255, 255, 255, 0.5);
+  padding: 28px;
+  border-radius: 20px;
+  backdrop-filter: blur(20px);
+  box-shadow: 0 0 30px rgba(0, 0, 0, 0.5);
+  color: #000000;
+}
+
+.profile-card h1 {
+  margin-bottom: 8px;
+  color: #c24f4f;
+}
+
+.profile-meta {
+  font-size: .95em;
+  color: #000000;
+  margin-bottom: 14px;
+}
+
+/* Styling for the Premium / Joined fields: black tones with subtle contrast */
+.profile-extra {
+  margin-top: 12px;
+  color: #111; /* base dark */
+  font-size: 0.95rem;
+}
+
+.profile-extra strong {
+  color: #000000; /* darker black for the label */
+  font-weight: 700;
+  margin-right: 6px;
+}
+
+.profile-extra span {
+  color: #222222; /* slightly lighter black for the value */
+  font-weight: 500;
+}
+
+.profile-bio {
+  background: rgba(0,0,0,0.12);
+  padding: 12px;
+  border-radius: 8px;
+}
+
+.actions {
+  margin-top: 18px;
+  display: flex;
+  gap: 8px;
+}
+
+.actions button {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: none;
+  cursor: pointer;
+}
+
+.btn-logout {
+  background: #ff002b;
+  color: #000000;
+}
+
+.btn-back {
+  background: transparent;
+  color: #000000;
+  border: 2px solid rgba(255,255,255,0.2);
+}
