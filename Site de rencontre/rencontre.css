@@ -1,0 +1,109 @@
+body {
+    font-family: 'Poppins', sans-serif;
+    background: url('../beau-texte-vacances-brillant-fond-d-ecran-romance.jpg') no-repeat center/cover;
+    margin: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+header {
+    width: 100%;
+    padding: 20px 40px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    background: #c24f4f;
+    color: #fff;
+}
+
+.logo {
+    font-size: 2em;
+    font-weight: bold;
+    text-decoration: none;
+    color: #fff;
+}
+
+.navigation a, .navigation button {
+    margin-left: 20px;
+    text-decoration: none;
+    color: #fff;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+.tinder-container {
+    margin-top: 60px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.tinder-cards {
+    position: relative;
+    width: 350px;
+    height: 500px;
+}
+
+.tinder-card {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background: #fff;
+    border-radius: 20px;
+    box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+    overflow: hidden;
+    cursor: grab;
+    transition: transform 0.3s, opacity 0.3s;
+}
+
+.tinder-card img {
+    width: 100%;
+    height: 70%;
+    object-fit: cover;
+}
+
+.tinder-card .info {
+    padding: 15px;
+    color: #333;
+}
+
+.tinder-card h2 {
+    margin: 0;
+    font-size: 22px;
+}
+
+.tinder-card p {
+    margin-top: 5px;
+    font-size: 14px;
+    color: #555;
+}
+
+.tinder-buttons {
+    margin-top: 20px;
+    display: flex;
+    gap: 40px;
+}
+
+.tinder-buttons button {
+    width: 70px;
+    height: 70px;
+    border: none;
+    border-radius: 50%;
+    font-size: 30px;
+    cursor: pointer;
+    color: #fff;
+    transition: transform 0.2s;
+}
+
+.tinder-buttons button:hover {
+    transform: scale(1.15);
+}
+
+.nope { background: #ff3b3b; }
+.like { background: #4cd964; }
+
+/* Empilement des cartes */
+.tinder-card:nth-child(1) { transform: scale(0.9) translateY(20px); }
+.tinder-card:nth-child(2) { transform: scale(0.95) translateY(10px); }
+.tinder-card:nth-child(3) { transform: scale(1) translateY(0); }

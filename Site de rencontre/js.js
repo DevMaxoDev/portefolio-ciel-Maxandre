@@ -172,3 +172,43 @@ document.addEventListener('DOMContentLoaded', () => {
 });
 
 console.log("Script chargé avec succès.");
+
+const cards = document.querySelectorAll(".tinder-card");
+const nopeBtn = document.querySelector(".nope");
+const likeBtn = document.querySelector(".like");
+
+let currentCard = 0;
+
+function swipeCard(direction) {
+    const card = cards[currentCard];
+    if (!card) return;
+
+    card.style.transform = `translateX(${direction * 800}px) rotate(${direction * 45}deg)`;
+    card.style.opacity = 0;
+
+    currentCard++;
+
+    setTimeout(() => {
+        card.style.display = "none";
+    }, 300);
+}
+
+// Buttons
+nopeBtn.addEventListener("click", () => swipeCard(-1));
+likeBtn.addEventListener("click", () => swipeCard(1));
+
+// Drag swipe
+cards.forEach(card => {
+    let startX = 0;
+
+    card.addEventListener("mousedown", e => {
+        startX = e.clientX;
+    });
+
+    card.addEventListener("mouseup", e => {
+        const diff = e.clientX - startX;
+
+        if (diff > 120) swipeCard(1);
+        if (diff < -120) swipeCard(-1);
+    });
+});
